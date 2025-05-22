@@ -13,7 +13,7 @@ Route::get('/', function () {
 
 // ------------------------------portfolio route-----------------------------------
 
-Route::get('protfolio', [PortfolioController::class, 'protfolio'])->name('protfolio');
+Route::get('portfolio', [PortfolioController::class, 'protfolio'])->name('portfolio');
 Route::post('contact', [PortfolioController::class, 'contact'])->name('contact');
 
 // ------------------------------portfolio route-----------------------------------

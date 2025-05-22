@@ -447,7 +447,7 @@
 									<div class="text">
 										<div>
 											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-											sit amet, consectetur adipiscing elit.
+											sit amet, consectetur adipiscing elits.
 										</div>
 									</div>
 									<div class="user">
