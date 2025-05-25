@@ -77,6 +77,12 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-floating mb-3 ">
+                                    <textarea class="form-control" name="quote" placeholder="Enter quote" id="quote" style="height: 80px;"><?php echo e($data->quota); ?></textarea>
+                                    <label for="floatingquote">Quote</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-floating mb-3 ">
                                     <textarea class="form-control" name="descreption" placeholder="Leave a Descreption here" id="descreption" style="height: 150px;"><?php echo e($data->descreption); ?></textarea>
                                     <label for="floatingDescreption">Descreption</label>
                                 </div>

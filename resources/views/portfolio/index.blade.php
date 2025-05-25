@@ -42,12 +42,15 @@
 
 				<!-- header profile -->
 				<div class="profile">
-					<div class="title">Ravi Verma</div>
+					<div class="title">{{ $data[0]->name }}</div>
+					@php
+						$designation = explode(',', $data[0]->designation);
+					@endphp
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
-							<p>Web Designer</p>
-							<p>Software Developer</p>
-							<p>Freelancer</p>
+						@foreach ($designation as $d_val)
+							<p>{{$d_val}}</p>
+						@endforeach
 						</div>
 					</div>
 				</div>
@@ -84,9 +87,7 @@
 					<!--<div class="subtitle">Web Designer</div>-->
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
-						@php
-							$designation = explode(',', $data[0]->designation);
-						@endphp
+						
 
 						@foreach ($designation as $val)
 							<p>{{$val}}</p>
@@ -256,15 +257,9 @@
 					<!--
 						Price Tables
 					-->
-					<div class="content pricing">
-
-						<!-- title -->
+					{{-- <div class="content pricing">
 						<div class="title">Pricing</div>
-
-						<!-- content -->
 						<div class="row pricing-items">
-
-							<!-- pricing item -->
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="pricing-item">
 									<div class="icon"><i class="fa fa-battery-half"></i></div>
@@ -291,7 +286,6 @@
 								</div>
 							</div>
 
-							<!-- pricing item -->
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="pricing-item">
 									<div class="icon"><i class="fa fa-battery-full"></i></div>
@@ -321,44 +315,32 @@
 							<div class="clear"></div>
 						</div>
 
-					</div>
+					</div> --}}
 
 					<!--
 						Fun Fact
 					-->
-					<div class="content fuct">
-
-						<!-- title -->
+					{{-- <div class="content fuct">
 						<div class="title">Fun Fact</div>
-
-						<!-- content -->
 						<div class="row fuct-items">
-
-							<!-- fuct item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="fuct-item">
 									<div class="icon"><span class="fa fa-music"></span></div>
 									<div class="name">80 Albumes Listened</div>
 								</div>
 							</div>
-
-							<!-- fuct item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="fuct-item">
 									<div class="icon"><span class="fa fa-trophy"></span></div>
 									<div class="name">15 Awards Won</div>
 								</div>
 							</div>
-
-							<!-- fuct item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="fuct-item">
 									<div class="icon"><span class="fa fa-coffee"></span></div>
 									<div class="name">1 000 Cups of coffee</div>
 								</div>
 							</div>
-
-							<!-- fuct item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="fuct-item">
 									<div class="icon"><span class="fa fa-flag"></span></div>
@@ -369,20 +351,14 @@
 							<div class="clear"></div>
 						</div>
 
-					</div>
+					</div> --}}
 
 					<!--
 						Clients
 					-->
-					<div class="content clients">
-
-						<!-- title -->
+					{{-- <div class="content clients">
 						<div class="title">Clients</div>
-
-						<!-- content -->
 						<div class="row client-items">
-
-							<!-- client item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="client-item">
 									<div class="image">
@@ -392,8 +368,6 @@
 									</div>
 								</div>
 							</div>
-
-							<!-- client item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="client-item">
 									<div class="image">
@@ -403,8 +377,6 @@
 									</div>
 								</div>
 							</div>
-
-							<!-- client item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="client-item">
 									<div class="image">
@@ -414,8 +386,6 @@
 									</div>
 								</div>
 							</div>
-
-							<!-- client item -->
 							<div class="col col-d-3 col-t-3 col-m-6 border-line-v">
 								<div class="client-item">
 									<div class="image">
@@ -429,7 +399,7 @@
 							<div class="clear"></div>
 						</div>
 
-					</div>
+					</div> --}}
 
 					<!-- Quote -->
 					<div class="content quote">
@@ -445,8 +415,7 @@
 								<div class="revs-item">
 									<div class="text">
 										<div>
-											Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-											sit amet, consectetur adipiscing elits.
+											{{$data[0]->quota}}
 										</div>
 									</div>
 									<div class="user">

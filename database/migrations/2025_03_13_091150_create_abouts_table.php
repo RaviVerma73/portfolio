@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('designation');
             $table->string('email');
             $table->string('phone');
-            $table->string('designation');
             $table->string('age',10);
             $table->string('residence');
             $table->string('freelance');

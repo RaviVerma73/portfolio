@@ -25,6 +25,7 @@ class AboutController extends Controller
                     'residence' =>  $request->residence,
                     'freelance' =>  $request->freelance,
                     'address'   =>  $request->address,
+                    'quota'   =>  $request->quote,
                     'descreption'   =>  $request->descreption,
                 ];
 
@@ -85,6 +86,7 @@ class AboutController extends Controller
                 $data->residence =  $request->residence;
                 $data->freelance =  $request->freelance;
                 $data->address  =  $request->address;
+                $data->quota  =  $request->quote;
                 $data->descreption   =  $request->descreption;
 
                 $data->save();

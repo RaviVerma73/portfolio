@@ -5,15 +5,16 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ContactFormController;
+use App\Http\Controllers\Admin\ServicesController;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // ------------------------------portfolio route-----------------------------------
 
-Route::get('portfolio', [PortfolioController::class, 'protfolio'])->name('portfolio');
+Route::get('/', [PortfolioController::class, 'protfolio'])->name('portfolio');
 Route::post('contact', [PortfolioController::class, 'contact'])->name('contact');
 
 // ------------------------------portfolio route-----------------------------------
@@ -42,6 +43,13 @@ Route::group([
         Route::get('about-us/delete/{id}', [AboutController::class , 'delete'])->name('delete');
         // --------------------------------about-us-----------------------------------------
 
+        // --------------------------------Services-----------------------------------------
+        Route::get('services',[ServicesController::class, 'list'])->name('services');
+        Route::match(['get','post'], 'services/add',[ServicesController::class, 'add'])->name('services.add');
+        Route::match(['get','post'], 'services/edit/{id}',[ServicesController::class, 'edit'])->name('services.edit');
+        Route::post('services/update',[ServicesController::class, 'update'])->name('services.update');
+        Route::get('services/delete/{id}', [ServicesController::class , 'delete'])->name('services.delete');
+        // --------------------------------Services-----------------------------------------
         Route::get('contact-form',[ContactFormController::class, 'contact_form'])->name('contactform');
 });
 // ------------------------------Admin route-----------------------------------
