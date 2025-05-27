@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
@@ -63,7 +64,8 @@ class AuthController extends Controller
     }
 
     public function dashboard(){
-        return view('admin.dashboard.dashboard');
+       $data = Contact::orderBy('created_at', 'desc')->limit(4)->get();
+        return view('admin.dashboard.dashboard', compact('data'));
     }
 
     public function profile(Request $request){

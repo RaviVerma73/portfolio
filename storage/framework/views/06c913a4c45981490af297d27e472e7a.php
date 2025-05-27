@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="<?php echo e(url('css/style.css')); ?>" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
 </head>
 
 <body>

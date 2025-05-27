@@ -29,6 +29,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{url('css/style.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
 </head>
 
 <body>

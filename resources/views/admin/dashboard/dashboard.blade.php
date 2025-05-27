@@ -3,7 +3,7 @@
 @section('content')
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
+                {{-- <div class="row g-4">
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-line fa-3x text-primary"></i>
@@ -41,12 +41,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Sale & Revenue End -->
 
 
             <!-- Sales Chart Start -->
-            <div class="container-fluid pt-4 px-4">
+            {{-- <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- Sales Chart End -->
 
 
@@ -125,55 +125,49 @@
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-2">
                                 <h6 class="mb-0">Messages</h6>
-                                <a href="">Show All</a>
+                                <a href="{{route('contactform')}}">Show All</a>
                             </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
+                            @foreach ($data as $key =>$val )  
+                                <div class="d-flex align-items-center border-bottom py-3">
+                                    <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="w-100 ms-3">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h6 class="mb-0">{{$val->name}}</h6>
+                                            @php
+                                                $time = $val->created_at;
+                                                $datetime = new DateTime($time);
+                                                $now = new DateTime();
+                                                $interval = $now->diff($datetime);
+
+                                                // Check if past or future
+                                                if ($datetime < $now) {
+                                                    if ($interval->d > 0) {
+                                                        $time_data = $interval->d . ' days ago';
+                                                    } elseif ($interval->h > 0) {
+                                                        $time_data = $interval->h . ' hours ago';
+                                                    } elseif ($interval->i > 0) {
+                                                        $time_data = $interval->i . ' minutes ago';
+                                                    } else {
+                                                        $time_data = 'Just now';
+                                                    }
+                                                } else {
+                                                    $time_data = $interval->i . ' minutes from now';
+                                                }
+
+                                            @endphp
+                                            <small>{{$time_data}} </small>
+                                        </div>
+                                        <span>{{$val->message}}</span>
                                     </div>
-                                    <span>Short message goes here...</span>
                                 </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center border-bottom py-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center pt-3">
-                                <img class="rounded-circle flex-shrink-0" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                                <div class="w-100 ms-3">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h6 class="mb-0">Jhon Doe</h6>
-                                        <small>15 minutes ago</small>
-                                    </div>
-                                    <span>Short message goes here...</span>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6 col-xl-4">
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Calender</h6>
-                                <a href="">Show All</a>
+                                {{-- <a href="">Show All</a> --}}
                             </div>
                             <div id="calender"></div>
                         </div>
@@ -182,7 +176,7 @@
                         <div class="h-100 bg-light rounded p-4">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">To Do List</h6>
-                                <a href="">Show All</a>
+                                {{-- <a href="">Show All</a> --}}
                             </div>
                             <div class="d-flex mb-2">
                                 <input class="form-control bg-transparent" type="text" placeholder="Enter task">

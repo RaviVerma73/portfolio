@@ -28,6 +28,9 @@
                     <a href="{{route('dashboard')}}" class="nav-item nav-link {{ request()->segment(1) == 'dashboard' ? 'active':'' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <a href="{{route('about-us')}}" class="nav-item nav-link {{ request()->segment(1) == 'about-us' ? 'active':'' }}"><i class="fa fa-user me-2"></i>About Us</a>
                     <a href="{{route('services')}}" class="nav-item nav-link {{ request()->segment(1) == 'services' ? 'active':'' }}"><i class="fa fa-cog me-2"></i>Services</a>
+                    <a href="{{route('blog')}}" class="nav-item nav-link {{ request()->segment(1) == 'blog' ? 'active':'' }}"><i class="fa fa-blog me-2"></i>Blog</a>
+                    <a href="" class="nav-item nav-link"><i class="fa fa-file me-2"></i>Resume</a>
+                    <a href="" class="nav-item nav-link"><i class="fas fa-tasks me-2"></i>Works</a>
                     <a href="{{route('contactform')}}" class="nav-item nav-link {{ request()->segment(1) == 'contact-form' ? 'active':'' }}"><i class="fa fa-keyboard me-2"></i>Contact Form</a>
                    
                     {{-- <div class="nav-item dropdown">

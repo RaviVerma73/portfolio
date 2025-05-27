@@ -42,9 +42,9 @@
 
 				<!-- header profile -->
 				<div class="profile">
-					<div class="title"><?php echo e($data[0]->name); ?></div>
+					<div class="title"><?php echo e($data['about']->name); ?></div>
 					<?php
-						$designation = explode(',', $data[0]->designation);
+						$designation = explode(',', $data['about']->designation);
 					?>
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
@@ -77,13 +77,13 @@
 
 					<!-- profile image -->
 					<?php
-						$imageUrl = asset('storage/img/'.$data[0]->image);
+						$imageUrl = asset('storage/img/'.$data['about']->image);
 					?>
 
 					<div class="slide" style="background-image: url('<?php echo e($imageUrl); ?>');"></div>
 
 					<!-- profile titles -->
-					<div class="title"><?php echo e($data[0]->name); ?></div>
+					<div class="title"><?php echo e($data['about']->name); ?></div>
 					<!--<div class="subtitle">Web Designer</div>-->
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
@@ -108,7 +108,7 @@
 
 					<!-- profile buttons -->
 					<div class="lnks">
-						<a href="<?php echo e(asset('storage/Doc/'.$data[0]->cv)); ?>" class="lnk" target='_blank'>
+						<a href="<?php echo e(asset('storage/Doc/'.$data['about']->cv)); ?>" class="lnk" target='_blank'>
 							<span class="text">Download CV</span>
 							<span class="ion ion-archive"></span>
 						</a>
@@ -141,7 +141,7 @@
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="text-box">
 									<p>
-										<?php echo e($data[0]->descreption); ?>
+										<?php echo e($data['about']->descreption); ?>
 
 									</p>
 								</div>
@@ -149,17 +149,17 @@
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="info-list">
 									<ul>
-										<?php if($data[0]->age): ?>
-										<li><strong>Age . . . . .</strong><?php echo e($data[0]->age); ?></li>
+										<?php if($data['about']->age): ?>
+										<li><strong>Age . . . . .</strong><?php echo e($data['about']->age); ?></li>
 										<?php endif; ?>
-										<?php if($data[0]->residence): ?>
-										<li><strong>Residence . . . . .</strong><?php echo e($data[0]->residence); ?></li>
+										<?php if($data['about']->residence): ?>
+										<li><strong>Residence . . . . .</strong><?php echo e($data['about']->residence); ?></li>
 										<?php endif; ?>
-										<?php if($data[0]->freelance): ?>
-										<li><strong>Freelance . . . . .</strong><?php echo e($data[0]->freelance); ?></li>
+										<?php if($data['about']->freelance): ?>
+										<li><strong>Freelance . . . . .</strong><?php echo e($data['about']->freelance); ?></li>
 										<?php endif; ?>
-										<?php if($data[0]->address): ?>
-										<li><strong>Address . . . . .</strong><?php echo e($data[0]->address); ?></li>
+										<?php if($data['about']->address): ?>
+										<li><strong>Address . . . . .</strong><?php echo e($data['about']->address); ?></li>
 										<?php endif; ?>
 									</ul>
 								</div>
@@ -180,76 +180,30 @@
 						<!-- content -->
 						<div class="row service-items border-line-v">
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
-								<div class="service-item">
-									<div class="icon">
-										<span class="fa fa-code"></span>
-									</div>
-									<div class="name">
-										<span>
-											Web Development </span>
-									</div>
-									<div class="desc">
-										<div>
-											<p>Modern and mobile-ready website that will help you reach all of your
-												marketing.</p>
+							<?php $__currentLoopData = $data['services']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $s_val): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+								
+								<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+									<div class="service-item">
+										<div class="icon">
+											<span class="<?php echo e($s_val->icon); ?>"></span>
+										</div>
+										<div class="name">
+											<span><?php echo e($s_val->name); ?> </span>
+										</div>
+										<div class="desc">
+											<div>
+												<p><?php echo e($s_val->description); ?></p>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
-								<div class="service-item">
-									<div class="icon">
-										<span class="fa fa-music"></span>
-									</div>
-									<div class="name">
-										<span>
-											Music Writing </span>
-									</div>
-									<div class="desc">
-										<div>
-											<p>Music copying, writing, creating, transcription, arranging and
-												composition services.</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
-								<div class="service-item">
-									<div class="icon">
-										<span class="fa fa-buysellads"></span>
-									</div>
-									<div class="name">
-										<span>
-											Advetising </span>
-									</div>
-									<div class="desc">
-										<div>
-											<p>Advertising services include television, radio, print, mail, and web
-												apps.</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
-								<div class="service-item">
-									<div class="icon">
-										<span class="fa fa-gamepad"></span>
-									</div>
-									<div class="name">
-										<span>
-											Game Development </span>
-									</div>
-									<div class="desc">
-										<div>
-											<p>Developing memorable and unique mobile android, ios and video games.</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 						</div>
 						<div class="clear"></div>
 
@@ -284,16 +238,16 @@
 								<div class="revs-item">
 									<div class="text">
 										<div>
-											<?php echo e($data[0]->quota); ?>
+											<?php echo e($data['about']->quota); ?>
 
 										</div>
 									</div>
 									<div class="user">
 										<div class="img">
-											<img src="<?php echo e($imageUrl); ?>" alt="<?php echo e($data[0]->name); ?>" style="width: 57px;height: 55px;" />
+											<img src="<?php echo e($imageUrl); ?>" alt="<?php echo e($data['about']->name); ?>" style="width: 57px;height: 55px;" />
 										</div>
 										<div class="info">
-											<div class="name"><?php echo e($data[0]->name); ?></div>
+											<div class="name"><?php echo e($data['about']->name); ?></div>
 											<div class="company"><?php echo $designation[0] ?></div>
 										</div>
 										<div class="clear"></div>
@@ -964,11 +918,12 @@
 						<!-- content -->
 						<div class="row border-line-v">
 							<!-- blog item -->
+							<?php $__currentLoopData = $data['blog']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key_b => $val_b): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 							<div class="col col-d-6 col-t-6 col-m-12">
 								<div class="box-item">
 									<div class="image">
 										<a href="blog-post-new.html">
-											<img src="images/blog/blog1.jpg" alt="By spite about do of allow" />
+											<img src="<?php echo e(asset('storage/blog_img/'.$val_b->image)); ?>" alt="By spite about do of allow" />
 											<span class="info">
 												<span class="ion ion-document-text"></span>
 											</span>
@@ -976,97 +931,26 @@
 									</div>
 									<div class="desc">
 										<a href="blog-post-new.html">
-											<span class="date">April 28, 2020</span>
+											<span class="date"><?php echo e(date('M d, Y',strtotime($val_b->created_at))); ?></span>
 										</a>
-										<a href="blog-post-new.html" class="name">By spite about do of allow</a>
+										<a href="blog-post-new.html" class="name"><?php echo e($val_b->title); ?></a>
 										<div class="text">
-											<p>Ex audire suavitate has, ei quodsi tacimates sapientem sed, pri zril
-												ubique ut. Te cule tation munere noluisse. Enim torquatos&#8230;</p>
+											<p><?php echo e($val_b->description); ?></p>
 										</div>
 									</div>
 								</div>
 							</div>
+							<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							<!-- blog item -->
-							<div class="col col-d-6 col-t-6 col-m-12">
-								<div class="box-item">
-									<div class="image">
-										<a href="blog-post-new.html">
-											<img src="images/blog/blog2.jpg" alt="By spite about do of allow" />
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="blog-post-new.html">
-											<span class="date">April 28, 2020</span>
-										</a>
-										<a href="blog-post-new.html" class="name">By spite about do of allow</a>
-										<div class="text">
-											<p>Ex audire suavitate has, ei quodsi tacimates sapientem sed, pri zril
-												ubique ut. Te cule tation munere noluisse. Enim torquatos&#8230;</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 							<!-- blog item -->
-							<div class="col col-d-6 col-t-6 col-m-12">
-								<div class="box-item">
-									<div class="image">
-										<a href="blog-post-new.html">
-											<img src="images/blog/blog3.jpg" alt="By spite about do of allow" />
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="blog-post-new.html">
-											<span class="date">April 28, 2020</span>
-										</a>
-										<a href="blog-post-new.html" class="name">By spite about do of allow</a>
-										<div class="text">
-											<p>Ex audire suavitate has, ei quodsi tacimates sapientem sed, pri zril
-												ubique ut. Te cule tation munere noluisse. Enim torquatos&#8230;</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 							<!-- blog item -->
-							<div class="col col-d-6 col-t-6 col-m-12">
-								<div class="box-item">
-									<div class="image">
-										<a href="blog-post-new.html">
-											<img src="images/blog/blog1.jpg" alt="By spite about do of allow" />
-											<span class="info">
-												<span class="ion ion-document-text"></span>
-											</span>
-										</a>
-									</div>
-									<div class="desc">
-										<a href="blog-post-new.html">
-											<span class="date">April 28, 2020</span>
-										</a>
-										<a href="blog-post-new.html" class="name">By spite about do of allow</a>
-										<div class="text">
-											<p>Ex audire suavitate has, ei quodsi tacimates sapientem sed, pri zril
-												ubique ut. Te cule tation munere noluisse. Enim torquatos&#8230;</p>
-										</div>
-									</div>
-								</div>
-							</div>
+							
 							<div class="clear"></div>
 						</div>
 
-						<div class="pager">
-							<nav class="navigation pagination">
-								<div class="nav-links">
-									<span class="page-numbers current">1</span>
-									<a class="page-numbers" href="#">2</a>
-									<a class="next page-numbers" href="#">Next</a>
-								</div>
-							</nav>
-						</div>
+						
 
 					</div>
 
@@ -1093,10 +977,10 @@
 								<div class="map" id="map"></div>
 								<div class="info-list">
 									<ul>
-										<li><strong>Address . . . . .</strong> <?php echo e($data[0]->address); ?></li>
-										<li><strong>Email . . . . .</strong> <?php echo e($data[0]->email); ?></li>
-										<li><strong>Phone . . . . .</strong> <?php echo e($data[0]->phone); ?></li>
-										<li><strong>Freelance . . . . .</strong> <?php echo e($data[0]->freelance); ?></li>
+										<li><strong>Address . . . . .</strong> <?php echo e($data['about']->address); ?></li>
+										<li><strong>Email . . . . .</strong> <?php echo e($data['about']->email); ?></li>
+										<li><strong>Phone . . . . .</strong> <?php echo e($data['about']->phone); ?></li>
+										<li><strong>Freelance . . . . .</strong> <?php echo e($data['about']->freelance); ?></li>
 									</ul>
 								</div>
 							</div>
@@ -1122,21 +1006,24 @@
 											<div class="col col-d-6 col-t-6 col-m-12">
 												<div class="group-val">
 													<input type="text" class="full_name" name="name" placeholder="Full Name" />
+													<span class='error_name' style='color:red'></span>
 												</div>
 											</div>
 											<div class="col col-d-6 col-t-6 col-m-12">
 												<div class="group-val">
 													<input type="text" class="email" name="email" placeholder="Email Address" />
+													<span class='error_email' style='color:red'></span>
 												</div>
 											</div>
 											<div class="col col-d-12 col-t-12 col-m-12">
 												<div class="group-val">
 													<textarea class="message" name="message"  placeholder="Your Message"></textarea>
+													<span class='error_message' style='color:red'></span>
 												</div>
 											</div>
 										</div>
 										<div class="align-left">
-											<a href="#" class="button" onclick="contact_submit(); return false;">
+											<a href="#" class="button contact_submit" onclick="contact_submit(); return false;">
 												<span class="text">Send Message</span>
 												<span class="arrow"></span>
 											</a>
@@ -1273,36 +1160,66 @@
 	</div>
 	<!-- bslthemes.com buttons html end -->
 <?php $__env->stopSection(); ?>
-
+<!-- Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
 function contact_submit(){
     var full_name = $('.full_name').val();
     var email = $('.email').val();
     var message = $('.message').val();
-
-    $.ajax({
-        url: "<?php echo e(route('contact')); ?>", // Use Blade syntax to generate the route URL
-        type: "POST",
-        data: {
-            full_name: full_name,
-            email: email,
-            message: message,
-            _token: "<?php echo e(csrf_token()); ?>" // Important: CSRF token for Laravel
-        },
-        success: function(res){
-			if(res.status){
-				$('.full_name').val('');
-				$('.email').val('');
-				$('.message').val('');
-            	alert(res.message);
-			}else{
-				alert(res.message);
+	var falge = true;
+	if(full_name == ''){
+		$('.error_name').html('Full name field is required.')
+		falge = false;
+	}else{
+		$('.error_name').html('')
+	}
+	if(email == ''){
+		$('.error_email').html('Email field is required.')
+		falge = false;
+	}else{
+		$('.error_email').html('')
+	}
+	if(message == ''){
+		$('.error_message').html('Message field is required.')
+		falge = false;
+	}else{
+		$('.error_message').html('')
+	}
+	
+	if(falge){	
+		$.ajax({
+			url: "<?php echo e(route('contact')); ?>", // Use Blade syntax to generate the route URL
+			type: "POST",
+			dataType:'json',
+			data: {
+				full_name: full_name,
+				email: email,
+				message: message,
+				_token: "<?php echo e(csrf_token()); ?>" // Important: CSRF token for Laravel
+			},
+			beforeSend: function () {
+				$('.contact_submit').css('disabled', true); //Disable the button before sending request
+			},
+			success: function(res){
+				if(res.status){
+					$('.full_name').val('');
+					$('.email').val('');
+					$('.message').val('');
+					  toastr.success(res.message);
+				}else{
+					toastr.error(res.message);
+				}
+			},
+			error: function(xhr){
+				var error = JSON.parse(xhr.responseText);
+				console.log(error)
 			}
-        },
-        error: function(xhr){
-            alert("An error occurred: " + xhr.responseText);
-        }
-    });
+			
+		});
+	}
 }
 </script> 
 

@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\Services;
 use App\Models\Contact;
+use App\Models\Blog;
 
 class PortfolioController extends Controller
 {
     public function protfolio(){
-        $data = About::all();  
+        $data['about'] = About::first();  
+        $data['services'] = Services::all();  
+        $data['blog'] = Blog::all();  
+
         return view('portfolio.index',compact('data'));
     }
 

@@ -48,6 +48,10 @@ class ServicesController extends Controller
     }
 
     public function delete($id){
-        print_r($id);die;
+        if(!empty($id)){
+            $data = Services::find($id);
+            $data->delete();
+            return to_route('services')->with('success', 'Delete Date Successfully');
+        }
     }
 }

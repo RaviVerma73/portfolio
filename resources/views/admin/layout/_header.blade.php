@@ -48,10 +48,10 @@
                                 </div>
                             </a>
                             <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all message</a>
+                            <a href="{{route('contactform')}}" class="dropdown-item text-center">See all message</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
@@ -74,7 +74,7 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="{{ asset('storage/img/' . auth()->user()->image) }}" alt="" style="width: 40px; height: 40px;">

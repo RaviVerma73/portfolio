@@ -6,6 +6,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ContactFormController;
 use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\BlogController;
 
 
 // Route::get('/', function () {
@@ -50,6 +51,15 @@ Route::group([
         Route::post('services/update',[ServicesController::class, 'update'])->name('services.update');
         Route::get('services/delete/{id}', [ServicesController::class , 'delete'])->name('services.delete');
         // --------------------------------Services-----------------------------------------
+
+        // --------------------------------Blog-----------------------------------------
+        Route::get('blog',[BlogController::class,'list'])->name('blog');
+        Route::match(['get','post'], 'blog/add',[BlogController::class, 'add'])->name('blog.add');
+        Route::match(['get','post'], 'blog/edit/{id}',[BlogController::class, 'edit'])->name('blog.edit');
+        Route::post('blog/update',[BlogController::class, 'update'])->name('blog.update');
+        Route::get('blog/delete/{id}',[BlogController::class, 'delete'])->name('blog.delete');
+        // --------------------------------Blog-----------------------------------------
+
         Route::get('contact-form',[ContactFormController::class, 'contact_form'])->name('contactform');
 });
 // ------------------------------Admin route-----------------------------------

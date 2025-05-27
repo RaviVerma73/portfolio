@@ -42,9 +42,9 @@
 
 				<!-- header profile -->
 				<div class="profile">
-					<div class="title">{{ $data[0]->name }}</div>
+					<div class="title">{{ $data['about']->name }}</div>
 					@php
-						$designation = explode(',', $data[0]->designation);
+						$designation = explode(',', $data['about']->designation);
 					@endphp
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
@@ -77,13 +77,13 @@
 
 					<!-- profile image -->
 					@php
-						$imageUrl = asset('storage/img/'.$data[0]->image);
+						$imageUrl = asset('storage/img/'.$data['about']->image);
 					@endphp
 
 					<div class="slide" style="background-image: url('{{ $imageUrl }}');"></div>
 
 					<!-- profile titles -->
-					<div class="title">{{ $data[0]->name }}</div>
+					<div class="title">{{ $data['about']->name }}</div>
 					<!--<div class="subtitle">Web Designer</div>-->
 					<div class="subtitle subtitle-typed">
 						<div class="typing-title">
@@ -108,7 +108,7 @@
 
 					<!-- profile buttons -->
 					<div class="lnks">
-						<a href="{{asset('storage/Doc/'.$data[0]->cv)}}" class="lnk" target='_blank'>
+						<a href="{{asset('storage/Doc/'.$data['about']->cv)}}" class="lnk" target='_blank'>
 							<span class="text">Download CV</span>
 							<span class="ion ion-archive"></span>
 						</a>
@@ -141,24 +141,24 @@
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="text-box">
 									<p>
-										{{ $data[0]->descreption }}
+										{{ $data['about']->descreption }}
 									</p>
 								</div>
 							</div>
 							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
 								<div class="info-list">
 									<ul>
-										@if ($data[0]->age)
-										<li><strong>Age . . . . .</strong>{{$data[0]->age}}</li>
+										@if ($data['about']->age)
+										<li><strong>Age . . . . .</strong>{{$data['about']->age}}</li>
 										@endif
-										@if ($data[0]->residence)
-										<li><strong>Residence . . . . .</strong>{{$data[0]->residence}}</li>
+										@if ($data['about']->residence)
+										<li><strong>Residence . . . . .</strong>{{$data['about']->residence}}</li>
 										@endif
-										@if ($data[0]->freelance)
-										<li><strong>Freelance . . . . .</strong>{{$data[0]->freelance}}</li>
+										@if ($data['about']->freelance)
+										<li><strong>Freelance . . . . .</strong>{{$data['about']->freelance}}</li>
 										@endif
-										@if ($data[0]->address)
-										<li><strong>Address . . . . .</strong>{{$data[0]->address}}</li>
+										@if ($data['about']->address)
+										<li><strong>Address . . . . .</strong>{{$data['about']->address}}</li>
 										@endif
 									</ul>
 								</div>
@@ -179,25 +179,26 @@
 						<!-- content -->
 						<div class="row service-items border-line-v">
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
-								<div class="service-item">
-									<div class="icon">
-										<span class="fa fa-code"></span>
-									</div>
-									<div class="name">
-										<span>
-											Web Development </span>
-									</div>
-									<div class="desc">
-										<div>
-											<p>Modern and mobile-ready website that will help you reach all of your
-												marketing.</p>
+							@foreach ($data['services'] as $key => $s_val )
+								
+								<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+									<div class="service-item">
+										<div class="icon">
+											<span class="{{$s_val->icon}}"></span>
+										</div>
+										<div class="name">
+											<span>{{$s_val->name}} </span>
+										</div>
+										<div class="desc">
+											<div>
+												<p>{{$s_val->description}}</p>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
+							@endforeach
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+							{{-- <div class="col col-d-6 col-t-6 col-m-12 border-line-h">
 								<div class="service-item">
 									<div class="icon">
 										<span class="fa fa-music"></span>
@@ -213,9 +214,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+							{{-- <div class="col col-d-6 col-t-6 col-m-12 border-line-h">
 								<div class="service-item">
 									<div class="icon">
 										<span class="fa fa-buysellads"></span>
@@ -231,9 +232,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- service item -->
-							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+							{{-- <div class="col col-d-6 col-t-6 col-m-12 border-line-h">
 								<div class="service-item">
 									<div class="icon">
 										<span class="fa fa-gamepad"></span>
@@ -248,7 +249,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 						</div>
 						<div class="clear"></div>
 
@@ -415,15 +416,15 @@
 								<div class="revs-item">
 									<div class="text">
 										<div>
-											{{$data[0]->quota}}
+											{{$data['about']->quota}}
 										</div>
 									</div>
 									<div class="user">
 										<div class="img">
-											<img src="{{ $imageUrl }}" alt="{{$data[0]->name}}" style="width: 57px;height: 55px;" />
+											<img src="{{ $imageUrl }}" alt="{{$data['about']->name}}" style="width: 57px;height: 55px;" />
 										</div>
 										<div class="info">
-											<div class="name">{{$data[0]->name}}</div>
+											<div class="name">{{$data['about']->name}}</div>
 											<div class="company">@php echo $designation[0] @endphp</div>
 										</div>
 										<div class="clear"></div>
@@ -1094,11 +1095,12 @@
 						<!-- content -->
 						<div class="row border-line-v">
 							<!-- blog item -->
+							@foreach ( $data['blog'] as $key_b => $val_b )
 							<div class="col col-d-6 col-t-6 col-m-12">
 								<div class="box-item">
 									<div class="image">
 										<a href="blog-post-new.html">
-											<img src="images/blog/blog1.jpg" alt="By spite about do of allow" />
+											<img src="{{asset('storage/blog_img/'.$val_b->image)}}" alt="By spite about do of allow" />
 											<span class="info">
 												<span class="ion ion-document-text"></span>
 											</span>
@@ -1106,18 +1108,18 @@
 									</div>
 									<div class="desc">
 										<a href="blog-post-new.html">
-											<span class="date">April 28, 2020</span>
+											<span class="date">{{ date('M d, Y',strtotime($val_b->created_at))}}</span>
 										</a>
-										<a href="blog-post-new.html" class="name">By spite about do of allow</a>
+										<a href="blog-post-new.html" class="name">{{$val_b->title}}</a>
 										<div class="text">
-											<p>Ex audire suavitate has, ei quodsi tacimates sapientem sed, pri zril
-												ubique ut. Te cule tation munere noluisse. Enim torquatos&#8230;</p>
+											<p>{{$val_b->description}}</p>
 										</div>
 									</div>
 								</div>
 							</div>
+							@endforeach
 							<!-- blog item -->
-							<div class="col col-d-6 col-t-6 col-m-12">
+							{{-- <div class="col col-d-6 col-t-6 col-m-12">
 								<div class="box-item">
 									<div class="image">
 										<a href="blog-post-new.html">
@@ -1138,9 +1140,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- blog item -->
-							<div class="col col-d-6 col-t-6 col-m-12">
+							{{-- <div class="col col-d-6 col-t-6 col-m-12">
 								<div class="box-item">
 									<div class="image">
 										<a href="blog-post-new.html">
@@ -1161,9 +1163,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- blog item -->
-							<div class="col col-d-6 col-t-6 col-m-12">
+							{{-- <div class="col col-d-6 col-t-6 col-m-12">
 								<div class="box-item">
 									<div class="image">
 										<a href="blog-post-new.html">
@@ -1184,11 +1186,11 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<div class="clear"></div>
 						</div>
 
-						<div class="pager">
+						{{-- <div class="pager">
 							<nav class="navigation pagination">
 								<div class="nav-links">
 									<span class="page-numbers current">1</span>
@@ -1196,7 +1198,7 @@
 									<a class="next page-numbers" href="#">Next</a>
 								</div>
 							</nav>
-						</div>
+						</div> --}}
 
 					</div>
 
@@ -1223,10 +1225,10 @@
 								<div class="map" id="map"></div>
 								<div class="info-list">
 									<ul>
-										<li><strong>Address . . . . .</strong> {{$data[0]->address}}</li>
-										<li><strong>Email . . . . .</strong> {{$data[0]->email}}</li>
-										<li><strong>Phone . . . . .</strong> {{$data[0]->phone}}</li>
-										<li><strong>Freelance . . . . .</strong> {{$data[0]->freelance}}</li>
+										<li><strong>Address . . . . .</strong> {{$data['about']->address}}</li>
+										<li><strong>Email . . . . .</strong> {{$data['about']->email}}</li>
+										<li><strong>Phone . . . . .</strong> {{$data['about']->phone}}</li>
+										<li><strong>Freelance . . . . .</strong> {{$data['about']->freelance}}</li>
 									</ul>
 								</div>
 							</div>
@@ -1252,21 +1254,24 @@
 											<div class="col col-d-6 col-t-6 col-m-12">
 												<div class="group-val">
 													<input type="text" class="full_name" name="name" placeholder="Full Name" />
+													<span class='error_name' style='color:red'></span>
 												</div>
 											</div>
 											<div class="col col-d-6 col-t-6 col-m-12">
 												<div class="group-val">
 													<input type="text" class="email" name="email" placeholder="Email Address" />
+													<span class='error_email' style='color:red'></span>
 												</div>
 											</div>
 											<div class="col col-d-12 col-t-12 col-m-12">
 												<div class="group-val">
 													<textarea class="message" name="message"  placeholder="Your Message"></textarea>
+													<span class='error_message' style='color:red'></span>
 												</div>
 											</div>
 										</div>
 										<div class="align-left">
-											<a href="#" class="button" onclick="contact_submit(); return false;">
+											<a href="#" class="button contact_submit" onclick="contact_submit(); return false;">
 												<span class="text">Send Message</span>
 												<span class="arrow"></span>
 											</a>
@@ -1403,35 +1408,65 @@
 	</div>
 	<!-- bslthemes.com buttons html end -->
 @endsection
-
+<!-- Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
 function contact_submit(){
     var full_name = $('.full_name').val();
     var email = $('.email').val();
     var message = $('.message').val();
-
-    $.ajax({
-        url: "{{ route('contact') }}", // Use Blade syntax to generate the route URL
-        type: "POST",
-        data: {
-            full_name: full_name,
-            email: email,
-            message: message,
-            _token: "{{ csrf_token() }}" // Important: CSRF token for Laravel
-        },
-        success: function(res){
-			if(res.status){
-				$('.full_name').val('');
-				$('.email').val('');
-				$('.message').val('');
-            	alert(res.message);
-			}else{
-				alert(res.message);
+	var falge = true;
+	if(full_name == ''){
+		$('.error_name').html('Full name field is required.')
+		falge = false;
+	}else{
+		$('.error_name').html('')
+	}
+	if(email == ''){
+		$('.error_email').html('Email field is required.')
+		falge = false;
+	}else{
+		$('.error_email').html('')
+	}
+	if(message == ''){
+		$('.error_message').html('Message field is required.')
+		falge = false;
+	}else{
+		$('.error_message').html('')
+	}
+	
+	if(falge){	
+		$.ajax({
+			url: "{{ route('contact') }}", // Use Blade syntax to generate the route URL
+			type: "POST",
+			dataType:'json',
+			data: {
+				full_name: full_name,
+				email: email,
+				message: message,
+				_token: "{{ csrf_token() }}" // Important: CSRF token for Laravel
+			},
+			beforeSend: function () {
+				$('.contact_submit').css('disabled', true); //Disable the button before sending request
+			},
+			success: function(res){
+				if(res.status){
+					$('.full_name').val('');
+					$('.email').val('');
+					$('.message').val('');
+					  toastr.success(res.message);
+				}else{
+					toastr.error(res.message);
+				}
+			},
+			error: function(xhr){
+				var error = JSON.parse(xhr.responseText);
+				console.log(error)
 			}
-        },
-        error: function(xhr){
-            alert("An error occurred: " + xhr.responseText);
-        }
-    });
+			
+		});
+	}
 }
 </script> 
