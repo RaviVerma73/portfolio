@@ -30,7 +30,7 @@
                     <a href="<?php echo e(route('services')); ?>" class="nav-item nav-link <?php echo e(request()->segment(1) == 'services' ? 'active':''); ?>"><i class="fa fa-cog me-2"></i>Services</a>
                     <a href="<?php echo e(route('blog')); ?>" class="nav-item nav-link <?php echo e(request()->segment(1) == 'blog' ? 'active':''); ?>"><i class="fa fa-blog me-2"></i>Blog</a>
                     <a href="" class="nav-item nav-link"><i class="fa fa-file me-2"></i>Resume</a>
-                    <a href="" class="nav-item nav-link"><i class="fas fa-tasks me-2"></i>Works</a>
+                    <a href="<?php echo e(route('work')); ?>" class="nav-item nav-link <?php echo e(request()->segment(1) == 'work' ? 'active':''); ?>"><i class="fas fa-tasks me-2"></i>Works</a>
                     <a href="<?php echo e(route('contactform')); ?>" class="nav-item nav-link <?php echo e(request()->segment(1) == 'contact-form' ? 'active':''); ?>"><i class="fa fa-keyboard me-2"></i>Contact Form</a>
                    
                     

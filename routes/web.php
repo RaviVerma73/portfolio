@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ContactFormController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\WorkController;
 
 
 // Route::get('/', function () {
@@ -59,6 +60,14 @@ Route::group([
         Route::post('blog/update',[BlogController::class, 'update'])->name('blog.update');
         Route::get('blog/delete/{id}',[BlogController::class, 'delete'])->name('blog.delete');
         // --------------------------------Blog-----------------------------------------
+
+        // --------------------------------Work-----------------------------------------
+        Route::get('work',[WorkController::class,'list'])->name('work');
+        Route::match(['get','post'], 'work/add',[WorkController::class, 'add'])->name('work.add');
+        Route::match(['get','post'], 'work/edit/{id}',[WorkController::class, 'edit'])->name('work.edit');
+        Route::post('work/update',[WorkController::class, 'update'])->name('work.update');
+        Route::get('work/delete/{id}',[WorkController::class, 'delete'])->name('work.delete');
+        // --------------------------------Work-----------------------------------------
 
         Route::get('contact-form',[ContactFormController::class, 'contact_form'])->name('contactform');
 });

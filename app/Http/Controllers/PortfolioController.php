@@ -7,6 +7,7 @@ use App\Models\About;
 use App\Models\Services;
 use App\Models\Contact;
 use App\Models\Blog;
+use App\Models\Work;
 
 class PortfolioController extends Controller
 {
@@ -14,6 +15,7 @@ class PortfolioController extends Controller
         $data['about'] = About::first();  
         $data['services'] = Services::all();  
         $data['blog'] = Blog::all();  
+        $data['work'] = Work::all();  
 
         return view('portfolio.index',compact('data'));
     }
